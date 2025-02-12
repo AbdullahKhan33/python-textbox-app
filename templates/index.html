@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Current Time</title>
+    <script>
+        function fetchTime() {
+            fetch('/get-time')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("time-display").innerText = "Current Time: " + data.time;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</head>
+<body>
+    <h2>Click the button to get the current time:</h2>
+    <button onclick="fetchTime()">Get Time</button>
+    <h3 id="time-display"></h3>
+</body>
+</html>
